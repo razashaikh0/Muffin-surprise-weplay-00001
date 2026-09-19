@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Monika 💖</title>
+  <style>
+    body {
+      background-color: #ffe6eb;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+      max-width: 360px;
+      width: 90%;
+      position: relative;
+    }
+
+    .badge {
+      background: #ff4d6d;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 13px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      color: #ff2a75;
+      font-size: 22px;
+      margin: 10px 0;
+    }
+
+    p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    /* 3rd Couple Kiss Animation (Rotate + Pulse + Glow) */
+    .couple-kiss {
+      font-size: 80px;
+      display: inline-block;
+      margin: 15px 0;
+      animation: kiss3rdAnimation 2s infinite ease-in-out;
+    }
+
+    @keyframes kiss3rdAnimation {
+      0% {
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.6));
+      }
+      50% {
+        transform: scale(1.25) rotate(15deg);
+        filter: drop-shadow(0 0 25px rgba(255, 20, 147, 0.9));
+      }
+      100% {
+        transform: scale(1) rotate(-15deg);
+        filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.6));
+      }
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 20px;
+      border: 1px solid #ffccd5;
+      outline: none;
+      text-align: center;
+      font-size: 14px;
+      background: #fff0f5;
+    }
+
+    .btn {
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #ff2a75;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .list-item {
+      background: #fff0f5;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 13px;
+      color: #333;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Romantic Background Music -->
+  <audio id="bgMusic" loop autoplay>
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112188.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- PAGE 1: Security Check -->
+  <div class="card" id="page1">
+    <div class="badge">Security Check 🔐</div>
+    <h2>Surprise for Monika ❤️</h2>
+    <p>Pehle batao, hum sabse pehle kahan mile the?</p>
+    <input type="text" id="answerInput" placeholder="Enter platform name...">
+    <br>
+    <button class="btn" onclick="checkAnswer()">Unlock Heart 💖</button>
+  </div>
+
+  <!-- PAGE 2: Welcome & 1 Month -->
+  <div class="card hidden" id="page2">
+    <div class="badge">1 Month Anniversary 🎉</div>
+    <h2>Happy 1st Month Monika! 💕</h2>
+    <p>Happy 1 Month of us dating! These 30 days with you have been absolute magic.</p>
+    <div style="font-size: 60px; margin: 15px 0;">✨🌸💖</div>
+    <button class="btn" onclick="nextPage(3)">Next Secret Page ➡️</button>
+  </div>
+
+  <!-- PAGE 3: Our Journey -->
+  <div class="card hidden" id="page3">
+    <div class="badge">Our Little Story 📖</div>
+    <h2>How It Began ✨</h2>
+    <div class="list-item">📱 <b>Instagram DM:</b> Where our first message changed everything.</div>
+    <div class="list-item">💬 <b>Late Night Talks:</b> Knowing you became my favorite routine.</div>
+    <div class="list-item">👩‍❤️‍👨 <b>1 Month Dating:</b> Today marks our first milestone together!</div>
+    <button class="btn" onclick="nextPage(4)">Why You Are Special ➡️</button>
+  </div>
+
+  <!-- PAGE 4: Reasons Why I Love You -->
+  <div class="card hidden" id="page4">
+    <div class="badge">Reasons 💌</div>
+    <h2>Why You're My Favorite ❤️</h2>
+    <div class="list-item">😊 Your smile instantly brightens my whole day.</div>
+    <div class="list-item">💬 Talking to you is the best part of my daily routine.</div>
+    <div class="list-item">💖 You make me feel so special and truly loved.</div>
+    <button class="btn" onclick="nextPage(5)">My Promises To You ➡️</button>
+  </div>
+
+  <!-- PAGE 5: Romantic Promises -->
+  <div class="card hidden" id="page5">
+    <div class="badge">Promises 🤝</div>
+    <h2>My Promises To Monika 💍</h2>
+    <p>1. I will always make time for you no matter how busy life gets.</p>
+    <p>2. I will listen to all your stories with full attention.</p>
+    <p>3. I will keep making you smile every single day!</p>
+    <button class="btn" onclick="nextPage(6)">Open Virtual Gift 🎁</button>
+  </div>
+
+  <!-- PAGE 6: Virtual Gift -->
+  <div class="card hidden" id="page6">
+    <div class="badge">Special Gift 🎁</div>
+    <h2>A Gift For You 🌹</h2>
+    <p>You deserve all the happiness, love, and flowers in the world!</p>
+    <div style="font-size: 70px; margin: 15px 0;">💐💍🧸</div>
+    <button class="btn" onclick="nextPage(7)">One Final Question ❓</button>
+  </div>
+
+  <!-- PAGE 7: The Question -->
+  <div class="card hidden" id="page7">
+    <div class="badge">Important Question 💖</div>
+    <h2>Monika... ❤️</h2>
+    <p>Will you continue this beautiful journey with me and stay by my side forever?</p>
+    <button class="btn" onclick="nextPage(8)">YES FOREVER! 💕</button>
+  </div>
+
+  <!-- PAGE 8: Final Kiss Page (3rd Couple Kiss) -->
+  <div class="card hidden" id="page8">
+    <div class="badge">Forever & Always 👩‍❤️‍💋‍👨</div>
+    <h2>I Love You Monika! ❤️</h2>
+    <p>Happy 1st Month Anniversary! You are my world.</p>
+    
+    <!-- 3rd Couple Kiss Animation -->
+    <div class="couple-kiss">👩‍❤️‍💋‍👨</div>
+    
+    <p style="font-size: 12px; color: #888;">Thank you for making my life beautiful! ✨</p>
+  </div>
+
+  <script>
+    function playMusic() {
+      const audio = document.getElementById('bgMusic');
+      audio.play().catch(e => console.log("Autoplay blocked"));
+    }
+
+    function checkAnswer() {
+      const ans = document.getElementById('answerInput').value.toLowerCase().trim();
+      if (ans.includes('insta') || ans.includes('instagram')) {
+        playMusic();
+        nextPage(2);
+      } else {
+        alert("Wrong answer! Hint: We met on social media 😉");
+      }
+    }
+
+    function nextPage(pageNum) {
+      playMusic();
+      for (let i = 1; i <= 8; i++) {
+        document.getElementById('page' + i).classList.add('hidden');
+      }
+      document.getElementById('page' + pageNum).classList.remove('hidden');
+    }
+  </script>
+
+</body>
+  </html>
+    
