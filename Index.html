@@ -3,208 +3,328 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Monika 💖</title>
+  <title>For My Dearest Monika 💖</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-color: #ffe6eb;
+      background: radial-gradient(circle at center, #ffb6c1, #ff69b4, #4a001f);
       font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      text-align: center;
+      overflow-x: hidden;
+      perspective: 1000px;
     }
 
+    /* Floating Particles Background */
+    .bg-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .heart-particle {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.4);
+      animation: floatUp 8s linear infinite;
+      font-size: 20px;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
+    }
+
+    /* 3D Glassmorphism Card Container */
     .card {
-      background: #ffffff;
-      padding: 30px 20px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
-      max-width: 360px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 105, 180, 0.5);
+      padding: 35px 25px;
+      max-width: 380px;
       width: 90%;
+      text-align: center;
       position: relative;
+      z-index: 10;
+      transform-style: preserve-3d;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card:hover {
+      transform: rotateY(5deg) rotateX(5deg) translateZ(10px);
     }
 
     .badge {
-      background: #ff4d6d;
-      color: white;
-      padding: 5px 15px;
-      border-radius: 15px;
-      font-size: 13px;
-      font-weight: bold;
+      background: linear-gradient(45deg, #ff1493, #ff69b4);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
       display: inline-block;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
     }
 
     h2 {
-      color: #ff2a75;
-      font-size: 22px;
-      margin: 10px 0;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      font-size: 24px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .romantic-quote {
+      font-family: 'Sacramento', cursive;
+      font-size: 26px;
+      color: #fff0f5;
+      margin: 15px 0;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+      line-height: 1.3;
     }
 
     p {
-      color: #555;
+      color: #fff;
       font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 15px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
-    /* 3rd Couple Kiss Animation (Rotate + Pulse + Glow) */
-    .couple-kiss {
-      font-size: 80px;
+    /* 3rd Couple Kiss Animation with 3D Depth & Glow */
+    .couple-kiss-3d {
+      font-size: 85px;
       display: inline-block;
-      margin: 15px 0;
-      animation: kiss3rdAnimation 2s infinite ease-in-out;
+      margin: 20px 0;
+      animation: kiss3DAnim 2.5s infinite ease-in-out;
+      transform-style: preserve-3d;
+      cursor: pointer;
     }
 
-    @keyframes kiss3rdAnimation {
+    @keyframes kiss3DAnim {
       0% {
-        transform: scale(1) rotate(0deg);
-        filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.6));
+        transform: scale(1) translateZ(0px) rotate(0deg);
+        filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.8));
       }
       50% {
-        transform: scale(1.25) rotate(15deg);
-        filter: drop-shadow(0 0 25px rgba(255, 20, 147, 0.9));
+        transform: scale(1.3) translateZ(40px) rotate(12deg);
+        filter: drop-shadow(0 0 35px rgba(255, 105, 180, 1));
       }
       100% {
-        transform: scale(1) rotate(-15deg);
-        filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.6));
+        transform: scale(1) translateZ(0px) rotate(-12deg);
+        filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.8));
       }
     }
 
     input[type="text"] {
-      width: 80%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 20px;
-      border: 1px solid #ffccd5;
+      width: 85%;
+      padding: 14px;
+      margin: 12px 0;
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
       outline: none;
       text-align: center;
       font-size: 14px;
-      background: #fff0f5;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      backdrop-filter: blur(5px);
+    }
+
+    input::placeholder {
+      color: #ffe4e1;
     }
 
     .btn {
-      background: #ff4d6d;
+      background: linear-gradient(45deg, #ff1493, #ff69b4);
       color: white;
       border: none;
-      padding: 12px 25px;
+      padding: 14px 28px;
       font-size: 15px;
-      border-radius: 25px;
+      font-weight: 600;
+      border-radius: 30px;
       cursor: pointer;
-      box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+      box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+      transition: all 0.3s ease;
       margin-top: 10px;
     }
 
     .btn:hover {
-      background: #ff2a75;
+      transform: scale(1.08) translateZ(15px);
+      box-shadow: 0 12px 25px rgba(255, 20, 147, 0.7);
     }
 
     .hidden {
       display: none;
     }
 
-    .list-item {
-      background: #fff0f5;
-      margin: 8px 0;
-      padding: 10px;
-      border-radius: 12px;
+    .box-3d {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 12px;
+      border-radius: 15px;
+      margin: 10px 0;
+      border: 1px solid rgba(255, 255, 255, 0.3);
       font-size: 13px;
-      color: #333;
-      text-align: left;
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
-  <!-- Romantic Background Music -->
-  <audio id="bgMusic" loop autoplay>
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112188.mp3" type="audio/mp3">
+  <!-- Floating Background Hearts -->
+  <div class="bg-hearts" id="heartsContainer"></div>
+
+  <!-- Romantic Background Song / Instrumental -->
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/14/audio_9939bc995f.mp3?filename=romantic-piano-flute-123437.mp3" type="audio/mp3">
   </audio>
 
   <!-- PAGE 1: Security Check -->
   <div class="card" id="page1">
     <div class="badge">Security Check 🔐</div>
-    <h2>Surprise for Monika ❤️</h2>
-    <p>Pehle batao, hum sabse pehle kahan mile the?</p>
+    <h2>For My Monika ❤️</h2>
+    <p>Where did our magical story first begin?</p>
     <input type="text" id="answerInput" placeholder="Enter platform name...">
     <br>
-    <button class="btn" onclick="checkAnswer()">Unlock Heart 💖</button>
+    <button class="btn" onclick="checkAnswer()">Unlock My Heart 💖</button>
   </div>
 
-  <!-- PAGE 2: Welcome & 1 Month -->
+  <!-- PAGE 2: 1 Month Anniversary -->
   <div class="card hidden" id="page2">
-    <div class="badge">1 Month Anniversary 🎉</div>
-    <h2>Happy 1st Month Monika! 💕</h2>
-    <p>Happy 1 Month of us dating! These 30 days with you have been absolute magic.</p>
-    <div style="font-size: 60px; margin: 15px 0;">✨🌸💖</div>
-    <button class="btn" onclick="nextPage(3)">Next Secret Page ➡️</button>
+    <div class="badge">Page 2 / 12 🎉</div>
+    <h2>Happy 1st Month! 💕</h2>
+    <div class="romantic-quote">"30 days of knowing you, 30 days of constant smiles."</div>
+    <p>Happy 1 Month Anniversary, Monika! Meeting you was fate, but falling for you was completely unexpected and beautiful.</p>
+    <button class="btn" onclick="nextPage(3)">Open Chapter 3 ➡️</button>
   </div>
 
-  <!-- PAGE 3: Our Journey -->
+  <!-- PAGE 3: The Beginning -->
   <div class="card hidden" id="page3">
-    <div class="badge">Our Little Story 📖</div>
-    <h2>How It Began ✨</h2>
-    <div class="list-item">📱 <b>Instagram DM:</b> Where our first message changed everything.</div>
-    <div class="list-item">💬 <b>Late Night Talks:</b> Knowing you became my favorite routine.</div>
-    <div class="list-item">👩‍❤️‍👨 <b>1 Month Dating:</b> Today marks our first milestone together!</div>
-    <button class="btn" onclick="nextPage(4)">Why You Are Special ➡️</button>
+    <div class="badge">Page 3 / 12 📱</div>
+    <h2>How We Met ✨</h2>
+    <p>It all started with a simple Instagram DM. Who knew a single notification would bring the most special person into my life?</p>
+    <div class="box-3d">✨ From strangers on Instagram to my favorite person ever.</div>
+    <button class="btn" onclick="nextPage(4)">Read More ➡️</button>
   </div>
 
-  <!-- PAGE 4: Reasons Why I Love You -->
+  <!-- PAGE 4: Deep Feeling -->
   <div class="card hidden" id="page4">
-    <div class="badge">Reasons 💌</div>
-    <h2>Why You're My Favorite ❤️</h2>
-    <div class="list-item">😊 Your smile instantly brightens my whole day.</div>
-    <div class="list-item">💬 Talking to you is the best part of my daily routine.</div>
-    <div class="list-item">💖 You make me feel so special and truly loved.</div>
-    <button class="btn" onclick="nextPage(5)">My Promises To You ➡️</button>
+    <div class="badge">Page 4 / 12 🌸</div>
+    <h2>You Are Unique ❤️</h2>
+    <div class="romantic-quote">"In a room full of art, I'd still stare at you."</div>
+    <p>Your kindness, your vibe, and the way you talk make every ordinary day feel extraordinary.</p>
+    <button class="btn" onclick="nextPage(5)">Next Surprise ➡️</button>
   </div>
 
-  <!-- PAGE 5: Romantic Promises -->
+  <!-- PAGE 5: What I Love About You -->
   <div class="card hidden" id="page5">
-    <div class="badge">Promises 🤝</div>
-    <h2>My Promises To Monika 💍</h2>
-    <p>1. I will always make time for you no matter how busy life gets.</p>
-    <p>2. I will listen to all your stories with full attention.</p>
-    <p>3. I will keep making you smile every single day!</p>
-    <button class="btn" onclick="nextPage(6)">Open Virtual Gift 🎁</button>
+    <div class="badge">Page 5 / 12 💌</div>
+    <h2>Things I Love About You 💕</h2>
+    <div class="box-3d">😊 The cute smile that fixes my worst days.</div>
+    <div class="box-3d">💬 Our conversations that make hours feel like minutes.</div>
+    <div class="box-3d">💖 The warmth you bring into my life every day.</div>
+    <button class="btn" onclick="nextPage(6)">My Promises ➡️</button>
   </div>
 
-  <!-- PAGE 6: Virtual Gift -->
+  <!-- PAGE 6: Romantic Promises -->
   <div class="card hidden" id="page6">
-    <div class="badge">Special Gift 🎁</div>
-    <h2>A Gift For You 🌹</h2>
-    <p>You deserve all the happiness, love, and flowers in the world!</p>
-    <div style="font-size: 70px; margin: 15px 0;">💐💍🧸</div>
-    <button class="btn" onclick="nextPage(7)">One Final Question ❓</button>
+    <div class="badge">Page 6 / 12 🤝</div>
+    <h2>Promises For Monika 💍</h2>
+    <div class="romantic-quote">"I promise to be your biggest supporter."</div>
+    <p>I promise to always listen to you, respect you, and hold your hand through every thick and thin.</p>
+    <button class="btn" onclick="nextPage(7)">Keep Going ➡️</button>
   </div>
 
-  <!-- PAGE 7: The Question -->
+  <!-- PAGE 7: Favorite Routine -->
   <div class="card hidden" id="page7">
-    <div class="badge">Important Question 💖</div>
-    <h2>Monika... ❤️</h2>
-    <p>Will you continue this beautiful journey with me and stay by my side forever?</p>
-    <button class="btn" onclick="nextPage(8)">YES FOREVER! 💕</button>
+    <div class="badge">Page 7 / 12 🌙</div>
+    <h2>My Favorite Routine ✨</h2>
+    <p>Checking your messages and talking to you before sleep has officially become my favorite habit of the day.</p>
+    <div class="romantic-quote">"You are my favorite thought."</div>
+    <button class="btn" onclick="nextPage(8)">Unwrap Gift ➡️</button>
   </div>
 
-  <!-- PAGE 8: Final Kiss Page (3rd Couple Kiss) -->
+  <!-- PAGE 8: Virtual Gift -->
   <div class="card hidden" id="page8">
-    <div class="badge">Forever & Always 👩‍❤️‍💋‍👨</div>
+    <div class="badge">Page 8 / 12 🎁</div>
+    <h2>A Special Gift For You 🌹</h2>
+    <p>Sending you endless warmth, virtual hugs, and all the sweetest flowers in the world!</p>
+    <div style="font-size: 65px; margin: 15px 0;">💐🧸💎✨</div>
+    <button class="btn" onclick="nextPage(9)">Special Memory ➡️</button>
+  </div>
+
+  <!-- PAGE 9: One Month Reflections -->
+  <div class="card hidden" id="page9">
+    <div class="badge">Page 9 / 12 🥂</div>
+    <h2>1 Month Down, Forever To Go 💕</h2>
+    <p>This 1 month was just the introduction. I can't wait to write many more chapters of our story together.</p>
+    <button class="btn" onclick="nextPage(10)">Deep Thoughts ➡️</button>
+  </div>
+
+  <!-- PAGE 10: Special Note -->
+  <div class="card hidden" id="page10">
+    <div class="badge">Page 10 / 12 💖</div>
+    <h2>You Are My Safe Space 🌌</h2>
+    <div class="romantic-quote">"If I had a flower for every time I thought of you, I could walk in my garden forever."</div>
+    <p>Thank you for being so amazing, Monika.</p>
+    <button class="btn" onclick="nextPage(11)">Important Question ➡️</button>
+  </div>
+
+  <!-- PAGE 11: The Proposal -->
+  <div class="card hidden" id="page11">
+    <div class="badge">Page 11 / 12 ❓</div>
+    <h2>Monika... ❤️</h2>
+    <p>Will you continue to make my life beautiful and stay by my side forever?</p>
+    <button class="btn" onclick="nextPage(12)">YES, ALWAYS! 💕</button>
+  </div>
+
+  <!-- PAGE 12: Grand Finale (3D Animated Couple Kiss) -->
+  <div class="card hidden" id="page12">
+    <div class="badge">Page 12 / 12 👩‍❤️‍💋‍👨</div>
     <h2>I Love You Monika! ❤️</h2>
-    <p>Happy 1st Month Anniversary! You are my world.</p>
+    <div class="romantic-quote">"Happy 1st Month Anniversary, My Love!"</div>
     
-    <!-- 3rd Couple Kiss Animation -->
-    <div class="couple-kiss">👩‍❤️‍💋‍👨</div>
+    <!-- 3D Animated Couple Kiss Emoji -->
+    <div class="couple-kiss-3d">👩‍❤️‍💋‍👨</div>
     
-    <p style="font-size: 12px; color: #888;">Thank you for making my life beautiful! ✨</p>
+    <p>You mean everything to me. Thank you for entering my life! ✨</p>
   </div>
 
   <script>
+    // Create Background Floating Hearts
+    function createHearts() {
+      const container = document.getElementById('heartsContainer');
+      for (let i = 0; i < 25; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart-particle');
+        heart.innerHTML = '💖';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(heart);
+      }
+    }
+    createHearts();
+
     function playMusic() {
       const audio = document.getElementById('bgMusic');
-      audio.play().catch(e => console.log("Autoplay blocked"));
+      audio.play().catch(e => console.log("Autoplay handled"));
     }
 
     function checkAnswer() {
@@ -213,13 +333,13 @@
         playMusic();
         nextPage(2);
       } else {
-        alert("Wrong answer! Hint: We met on social media 😉");
+        alert("Wrong answer! Hint: Think about where we first chatted 😉");
       }
     }
 
     function nextPage(pageNum) {
       playMusic();
-      for (let i = 1; i <= 8; i++) {
+      for (let i = 1; i <= 12; i++) {
         document.getElementById('page' + i).classList.add('hidden');
       }
       document.getElementById('page' + pageNum).classList.remove('hidden');
@@ -227,5 +347,4 @@
   </script>
 
 </body>
-  </html>
-    
+</html>
